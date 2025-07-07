@@ -4,7 +4,6 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 import { Button } from "@/components/ui/button"
 import Typo from './Typo' ; 
-import Default from './assets/default.png' 
 
 import{
   Card,
@@ -14,13 +13,15 @@ import{
   CardHeader,
 } from "@/components/ui/card"
 
+
 const cardVariants = cva(
   "",
   {
     variants: {
       variant: {
         default: "w-full max-w-sm gap-4 py-0 pb-6 bg-transparent border-none",
-        boxed: "w-full max-w-sm py-4 border border-solid border-[--stroke]"
+        boxed: "w-full max-w-sm py-4 border border-solid border-[--stroke]",
+        large: "w-3xl max-w-sm py-4 border border-solid border-[--stroke]"
       }
     },
     defaultVariants: {
@@ -35,7 +36,7 @@ const contentVariants = cva(
     variants: {
       variant: {
         default: "px-0",
-        boxed: "px-4" 
+        boxed: "px-4 rounded-lg" 
       }
     },
     defaultVariants: {
@@ -44,18 +45,19 @@ const contentVariants = cva(
   }
 )
 
-
-
-
 type PlexCardProps = VariantProps<typeof cardVariants> & {
   className?: string
   variant?: string  
   icon?: string
+  img? : string
+  content? : React.RefObject<'div'>
 }
 
 export default function PlexCard({
   variant,
   icon,
+  content,
+  img, 
   className,
 }: PlexCardProps ) {
 
@@ -63,10 +65,14 @@ export default function PlexCard({
     return  <ChevronRight size={48} /> ; 
   }
 
+  const renderImage = () => {
+      return <img src={img} alt='image' className='w-full h-auto'/>
+  }
+
   return (
     <Card className={cn(cardVariants({variant}))}>
       <CardContent className={cn(contentVariants({variant}))}>
-        <img src={Default} alt='default' className='w-full h-auto'/>
+        { img && renderImage() }
       </CardContent>
       <CardHeader>
         <Typo

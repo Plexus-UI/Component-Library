@@ -1,6 +1,7 @@
 import PlexCard from './components/PlexCard.tsx'
 import { ThemeProvider } from './components/theme-provider.tsx'
-import CardDemo from './demos/CardDemo' ; 
+import Circles from './components/Circles'
+import Default from './assets/default.png'
 import './App.css'
 
 function App() {
@@ -8,7 +9,11 @@ function App() {
   return (
     <>
       <ThemeProvider defaultTheme='dark' storageKey="vite-ui-theme">
-        <CardDemo/>
+        {/* <CardDemo/> */}
+        <Circles 
+          images={[ Default, Default, Default ]}
+          titles={[ Default, Default, Default ]}
+        /> 
       </ThemeProvider>
     </>
   )
