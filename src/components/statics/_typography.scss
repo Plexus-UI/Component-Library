@@ -1,0 +1,98 @@
+@import "@fontsource/inter-tight/400.css";
+@import "@fontsource/inter-tight/500.css";
+@import "@fontsource/inter-tight/600.css";
+
+@import "@fontsource/plus-jakarta-sans/400.css";
+@import "@fontsource/plus-jakarta-sans/500.css";
+@import "@fontsource/plus-jakarta-sans/600.css";
+@import "@fontsource/plus-jakarta-sans/700.css";
+@import "@fontsource/plus-jakarta-sans/800.css";
+
+@mixin type-style($size, $weight, $line-height, $family: null, $spacing: null  ) {
+
+  @if $family != null {
+    font-family: var( --font-family, #{$family} );
+  } @else {
+    font-family: var(--font-family, 'Plus Jakarta Sans');
+  }
+
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+
+  @if $spacing != null {
+    letter-spacing: $spacing;
+  }
+}
+
+@mixin heading-1 {
+  @include type-style( 60px, 600, 1.2 );
+}
+
+@mixin heading-2 {
+  @include type-style( 48px, 600, 1.4 );
+}
+
+@mixin heading-3 {
+  @include type-style( 36px, 600, 1.4 );
+}
+
+@mixin heading-4 {
+  @include type-style( 30px, 600, 1.4 );
+}
+
+@mixin heading-5 {
+  @include type-style( 24px, 600, 1.5 );
+}
+
+@mixin heading-6 {
+  @include type-style( 20px, 600, 1.6 );
+}
+
+@mixin body-large-normal {
+  @include type-style(18px, 400, 1.6, "Inter Tight");
+}
+
+@mixin body-large-medium {
+  @include type-style(18px, 400, 1.6, "Inter Tight");
+}
+
+@mixin body-large-semibold {
+  @include type-style(18px, 400, 1.6, "Inter Tight");
+}
+
+@mixin body-default-normal {
+  @include type-style(16px, 400, 1.8, "Inter Tight");
+}
+
+@mixin body-default-medium {
+  @include type-style(16px, 400, 1.8, "Inter Tight");
+}
+
+@mixin body-default-semibold {
+  @include type-style(16px, 400, 1.8, "Inter Tight");
+}
+
+@mixin body-small-normal {
+  @include type-style(14px, 400, 1.8, "Inter Tight");
+}
+
+@mixin body-small-medium {
+  @include type-style(14px, 400, 1.8, "Inter Tight");
+}
+
+@mixin body-small-semibold {
+  @include type-style(14px, 400, 1.8, "Inter Tight");
+}
+
+@mixin body-xsmall-normal {
+  @include type-style(12px, 400, 1.2, "Inter Tight");
+}
+
+@mixin body-xsmall-medium {
+  @include type-style(12px, 400, 1.2, "Inter Tight");
+}
+
+@mixin body-xsmall-semibold {
+  @include type-style(12px, 400, 1.2, "Inter Tight");
+}

@@ -1,17 +1,15 @@
-import { CardDemo } from './components/CardDemo'
-import { CalendarDemo } from './components/CalendarDemo'
-import { ButtonDemo } from './components/ButtonDemo.tsx'
+import PlexCard from './components/PlexCard.tsx'
+import { ThemeProvider } from './components/theme-provider.tsx'
+import CardDemo from './demos/CardDemo' ; 
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <div>
-        <CardDemo />
-        <CalendarDemo />
-        <ButtonDemo/>
-      </div>
+      <ThemeProvider defaultTheme='dark' storageKey="vite-ui-theme">
+        <CardDemo/>
+      </ThemeProvider>
     </>
   )
 }
